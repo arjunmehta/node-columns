@@ -1,0 +1,29 @@
+{
+  "name": "column-stream",
+  "version": "1.0.0",
+  "description": "Stream your streams into column streams.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arjunmehta/node-column-stream.git"
+  },
+  "keywords": [
+    "streams",
+    "columns",
+    "column",
+    "view",
+    "terminal",
+    "pipe",
+    "stream",
+    "column"
+  ],
+  "author": "Arjun Mehta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arjunmehta/node-column-stream/issues"
+  },
+  "homepage": "https://github.com/arjunmehta/node-column-stream"
+}
