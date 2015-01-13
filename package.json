@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/arjunmehta/node-column-stream/issues"
   },
-  "homepage": "https://github.com/arjunmehta/node-column-stream"
+  "homepage": "https://github.com/arjunmehta/node-column-stream",
+  "dependencies": {
+    "wcwidth.js": "^1.0.0"
+  }
 }
