@@ -1,11 +1,15 @@
-// Columns
+// node-columns
+// MIT © Arjun Mehta
+// www.arjunmehta.net
 
-var tty = require('./lib/tty');
+
+var MainView = require('./lib/MainView');
+var Column = require('./lib/Column');
+
 var idCount = 0;
 
 
 function create(opts) {
-    opts = opts || {};
     return new Columns(opts);
 }
 
@@ -20,24 +24,13 @@ function Columns(opts) {
         left: 0
     };
 
-
     this.opts = opts;
-
+    this.view = new MainView(this);
     this.columns = {};
-    trackStdout(this);
 }
 
-Object.defineProperty(Columns.prototype, 'width', {
-    get: function() {
-        return tty.width - this.opts.margin.left - this.opts.margin.right;
-    }
-});
 
-Object.defineProperty(Columns.prototype, 'height', {
-    get: function() {
-        return tty.width - this.opts.margin.left - this.opts.margin.right;
-    }
-});
+// core getter/setter properties
 
 Object.defineProperty(Columns.prototype, 'margin', {
     get: function() {
@@ -45,71 +38,55 @@ Object.defineProperty(Columns.prototype, 'margin', {
     },
     set: function(margin) {
         this.opts.margin = margin;
-        this.redraw();
+        this.view.refresh();
     }
 });
 
-Object.defineProperty(Columns.prototype, 'headerSeparator', {
+Object.defineProperty(Columns.prototype, 'header_separator', {
     get: function() {
-        return this.opts.headerSeparator;
+        return this.opts.header_separator || '_';
     },
-    set: function(headerSeparator) {
-        this.opts.headerSeparator = headerSeparator;
-        this.redraw();
+    set: function(header_separator) {
+        this.opts.header_separator = header_separator;
+        this.view.refresh();
     }
 });
 
 Object.defineProperty(Columns.prototype, 'separator', {
     get: function() {
-        return this.opts.separator;
+        return this.opts.separator || ' ';
     },
     set: function(separator) {
         this.opts.separator = separator;
-        this.redraw();
+        this.view.refresh();
     }
 });
+
+
+// core prototype methods
 
 Columns.prototype.column = function(name) {
     return this.columns[name];
 };
 
 Columns.prototype.addColumn = function(name, opts) {
-    name = name || "column_" + (Math.random()).toString(36) + idCount++;
-    this.columns[name] = new Column(name, this, opts);
-    this.redraw();
+
+	opts = opts || {};
+	opts.header = opts.header !== undefined ? opts.header : name;
+
+    name = name || 'column_' + (Math.random()).toString(36) + idCount++;
+    this.columns[name] = new Column(this, name, opts);
+    this.view.refresh();
+
+    return this.columns[name];
 };
 
 Columns.prototype.removeColumn = function(name) {
     this.columns[name] = undefined;
-    this.redraw();
-};
-
-Columns.prototype.redraw = function() {
-
-    var nextX = null,
-        current;
-
-    for (var column_name in this.columns) {
-        current = this.columns[column_name];
-        if (current !== undefined) {
-            current.view.recalculate(nextX !== null ? nextX : this.margin.left);
-            current.view.redraw();
-            nextX = this.getNextX(current);
-        }
-    }
-};
-
-Columns.prototype.getNextX = function(column) {
-    return column.width + this.margin.left + this.separator.width;
+    this.view.refresh();
 };
 
 
-function trackStdout(columns) {
-    process.stdout.on('resize', function() {
-        tty.update();
-        columns.redraw();
-    });
-}
-
-
-module.exports = exports = create;
+module.exports = exports = {
+    create: create
+};
