@@ -1,5 +1,5 @@
 # columns
-[![Build Status](https://travis-ci.org/arjunmehta/node-protogram.svg?branch=master)](https://travis-ci.org/arjunmehta/node-columns)
+[![Build Status](https://travis-ci.org/arjunmehta/node-columns.svg)](https://travis-ci.org/arjunmehta/node-columns)
 
 ![columns title image](https://raw.githubusercontent.com/arjunmehta/node-columns/image/image/cover.png)
 
