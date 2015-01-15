@@ -11,9 +11,8 @@ This module takes **any number of text streams and puts them neatly into full sc
 - **custom column headers as well as column and header separators**.
 - **choice of flow modes (efficient or natural)**
 
-
-## `*` note: in active development
-This module is in active development. Please consider contributing: [issues](), [feature requests]() and especially [development help]().
+#### `*` note: in active development
+This module is in active development. Please consider contributing: [issues](https://github.com/arjunmehta/node-columns/issues/new), [feature requests](https://github.com/arjunmehta/node-columns/issues/new) and especially [development help](https://github.com/arjunmehta/node-columns).
 
 ## Installation
 ```bash
@@ -55,12 +54,18 @@ process.stdin.pipe(columns.column("Column C"));
 
 ### Customize The Appearance of Columnns
 
-Finally, the most important step! Now that you've set everything up, you're ready to parse your program's arguments.
+Finally, you can also customize the appearance of your columns.
 
-```javascript
-program.parse(process.argv);
+#### Add Custom Headers
+#### Adjust the Width of Columns
+#### Add Custom Column and Header separators
+#### Add Margins to the Column Set
+
+## Additional Documentaton to Come...
+
+## License
+
 ```
-
-### View Examples
-
-
+The MIT License (MIT)
+Copyright (c) 2014 Arjun Mehta
+```
