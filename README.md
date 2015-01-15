@@ -37,7 +37,9 @@ Add columns to your program. Give them a name, and set options for them.Add opti
 
 ```javascript
 var a = columns.addColumn("Column A");
+
 // OR
+
 columns
     .addColumn("Column B")
     .addColumn("Column C");
@@ -56,7 +58,7 @@ setInterval(function(){
 process.stdin.pipe(columns.column("Column C"));
 ```
 
-### Customize The Appearance of Columnns
+### Customize the Appearance of Columnns
 
 Finally, you can also customize the appearance of your columns.
 
