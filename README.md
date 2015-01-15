@@ -5,7 +5,9 @@
 
 ---
 #### In Active Development
+
 This module very new and is in active development. Please consider contributing: [issues](https://github.com/arjunmehta/node-columns/issues/new), [feature requests](https://github.com/arjunmehta/node-columns/issues/new) and especially [development help](https://github.com/arjunmehta/node-columns).
+
 ---
 
 This module takes **any number of text streams and puts them neatly into full screen columns** with optional headers, and your choice of column and header separators.
