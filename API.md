@@ -8,6 +8,9 @@ What should the behaviour be for
 
 
 
+If column width is set:
+remaining = columns.width - allSetColumnWidths()
+allNotSetColumnWidth = remaining/allNotSetColumns.length
 
 
 
@@ -58,6 +61,7 @@ columns.addColumns({name: options})
 columns.addColumn("A", options)
 columns.removeColumn("A")
 columns.removeColumns([])
+columns.removeAllColumns([])
 
 columns.offsetX = "0"
 columns.offsetY = "0"

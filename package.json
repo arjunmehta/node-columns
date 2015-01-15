@@ -1,33 +1,37 @@
 {
-  "name": "column-stream",
-  "version": "1.0.0",
-  "description": "Stream your streams into column streams.",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/arjunmehta/node-column-stream.git"
-  },
-  "keywords": [
-    "streams",
-    "columns",
-    "column",
-    "view",
-    "terminal",
-    "pipe",
-    "stream",
-    "column"
-  ],
-  "author": "Arjun Mehta",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/arjunmehta/node-column-stream/issues"
-  },
-  "homepage": "https://github.com/arjunmehta/node-column-stream",
-  "dependencies": {
-    "keypress": "~0.2.1",
-    "wcwidth.js": "~1.0.0"
-  }
+    "name": "columns",
+    "version": "1.0.0",
+    "description": "Stream your streams into streams of column streams.",
+    "main": "main.js",
+    "scripts": {
+        "test": "nodeunit test/test.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/arjunmehta/node-columns.git"
+    },
+    "devDependencies": {
+        "nodeunit": "~0.8.8",
+        "benchmark": "~1.0.0",
+        "keypress": "~0.2.1"
+    },
+    "keywords": [
+        "streams",
+        "columns",
+        "column",
+        "view",
+        "terminal",
+        "pipe",
+        "stream"
+    ],
+    "author": "Arjun Mehta",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/arjunmehta/node-columns/issues"
+    },
+    "homepage": "https://github.com/arjunmehta/node-columns",
+    "dependencies": {
+        "ansi-regex": "~1.1.0",
+        "wcwidth.js": "~1.0.0"
+    }
 }

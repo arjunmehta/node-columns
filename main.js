@@ -9,6 +9,7 @@ var Column = require('./lib/Column');
 var idCount = 0;
 
 
+
 function create(opts) {
     return new Columns(opts);
 }
@@ -44,7 +45,7 @@ Object.defineProperty(Columns.prototype, 'margin', {
 
 Object.defineProperty(Columns.prototype, 'header_separator', {
     get: function() {
-        return this.opts.header_separator || '_';
+        return this.opts.header_separator !== undefined ? this.opts.header_separator : '_';
     },
     set: function(header_separator) {
         this.opts.header_separator = header_separator;
@@ -54,7 +55,7 @@ Object.defineProperty(Columns.prototype, 'header_separator', {
 
 Object.defineProperty(Columns.prototype, 'separator', {
     get: function() {
-        return this.opts.separator || ' ';
+        return this.opts.separator !== undefined ? this.opts.separator : ' ';
     },
     set: function(separator) {
         this.opts.separator = separator;
