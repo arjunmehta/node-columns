@@ -3,6 +3,11 @@
 
 ![columns title image](https://raw.githubusercontent.com/arjunmehta/node-columns/image/image/cover.png)
 
+---
+#### In Active Development
+This module very new and is in active development. Please consider contributing: [issues](https://github.com/arjunmehta/node-columns/issues/new), [feature requests](https://github.com/arjunmehta/node-columns/issues/new) and especially [development help](https://github.com/arjunmehta/node-columns).
+---
+
 This module takes **any number of text streams and puts them neatly into full screen columns** with optional headers, and your choice of column and header separators.
 
 - **columns act as writable streams**
@@ -10,9 +15,6 @@ This module takes **any number of text streams and puts them neatly into full sc
 - **colour support and limited formatting support**
 - **custom column headers as well as column and header separators**.
 - **choice of flow modes (efficient or natural)**
-
-#### `*` note: in active development
-This module is in active development. Please consider contributing: [issues](https://github.com/arjunmehta/node-columns/issues/new), [feature requests](https://github.com/arjunmehta/node-columns/issues/new) and especially [development help](https://github.com/arjunmehta/node-columns).
 
 ## Installation
 ```bash
