@@ -1,4 +1,4 @@
-var columns = require('../main');
+var columns = require('../main').create({mode: "debug"});
 
 exports['Exported Properly'] = function(test) {
     test.expect(2);

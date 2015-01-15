@@ -26,7 +26,7 @@ function Columns(opts) {
     };
 
     this.opts = opts;
-    this.view = new MainView(this);
+    this.view = new MainView(this, opts.mode);
     this.columns = {};
 }
 
