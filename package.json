@@ -1,7 +1,7 @@
 {
     "name": "columns",
     "version": "1.0.0",
-    "description": "Stream your streams into streams of column streams.",
+    "description": "Stream your text streams into streams of column streams.",
     "main": "main.js",
     "scripts": {
         "test": "nodeunit test/test.js"

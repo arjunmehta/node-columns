@@ -25,7 +25,7 @@ var columns = require('../main').create({
     header_separator: false
 });
 
-columns.addColumn("A1");
+var a = columns.addColumn();
 
 columns.addColumn("A2", {
     width: "50%"
@@ -42,11 +42,11 @@ columns.addColumn("A5");
 
 
 setInterval(function(){
-	columns.column("A1").write(randomTruncate("AAAAAAAA" + new Date().getTime() + "AAAAAAAAAAAAAAABBBBSBBSBBBSAAAA"));
+	a.write(randomTruncate("AAAAAAAA" + new Date().getSeconds() + "\nAAAAAAAAAAAAAAABBBBSBBSBBBSAAAA"));
 }, 550);
 
 setInterval(function(){
-	columns.column("A2").write(randomTruncate("Hello0000\n" + new Date().getTime() + "JJJJJJJJJJJJJJJAJJAGHAKJGAJHGAJAHGJAHGAJHGAJHGAJHGAJHAGJAHGJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ"));
+	columns.column("A2").write(randomTruncate("Hello0000\n" + new Date() + "JJJJJJJJJJJJJJJAJJAGHAKJGAJHGAJAHGJAHGAJHGAJHGAJHGAJHAGJAHGJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ"));
 }, 500);
 
 
