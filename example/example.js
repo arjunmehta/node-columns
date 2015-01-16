@@ -1,25 +1,11 @@
 var keypress = require('keypress');
 
-if(process.stdin.isTTY){
-
-  keypress(process.stdin);  
-  process.stdin.setRawMode(true);
-
-  process.stdin.on('keypress', function (ch, key) {
-
-    if (key && ((key.ctrl && key.name == 'c') || key.name == 'q') ) {
-      process.stdin.pause();
-      process.exit(0);
-    }
-  });
-}
-
 var columns = require('../main').create({
     margin: {
-        top: 0,
-        bottom: 0,
-        right: 0,
-        left: 0
+        top: 5,
+        bottom: 2,
+        right: 5,
+        left: 5
     },
     separator: ' | ',
     header_separator: false
@@ -40,6 +26,9 @@ columns.addColumn("A4");
 
 columns.addColumn("A5");
 
+
+
+// random writes
 
 setInterval(function(){
 	a.write(randomTruncate("AAAAAAAA" + new Date().getSeconds() + "\nAAAAAAAAAAAAAAABBBBSBBSBBBSAAAA"));
@@ -63,10 +52,23 @@ setInterval(function(){
 	columns.column("A5").write(randomTruncate("\033[2KDDDDDDDDDDDDDDDDDD\nDDDDD" + columns.column("A5").width + new Date().getTime() +  "\n"));
 }, 100);
 
-// setInterval(function(){
-// 	columns.column("A1").write(randomTruncate("\033[32mZZZZzzAAAAAAAA"));
-// }, 750);
-
 function randomTruncate(line){
 	return line.substring(0, 6 + Math.random()*50);
+}
+
+
+// exit properly so we can restore state correctly
+
+if(process.stdin.isTTY){
+
+  keypress(process.stdin);  
+  process.stdin.setRawMode(true);
+
+  process.stdin.on('keypress', function (ch, key) {
+
+    if (key && ((key.ctrl && key.name == 'c') || key.name == 'q') ) {
+      process.stdin.pause();
+      process.exit(0);
+    }
+  });
 }
