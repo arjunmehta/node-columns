@@ -3,10 +3,9 @@
 
 ![columns title image](https://raw.githubusercontent.com/arjunmehta/node-columns/image/image/cover.png)
 
----
 #### In Active Development
 
-This module very new and is in active development. Please consider contributing: [issues](https://github.com/arjunmehta/node-columns/issues/new), [feature requests](https://github.com/arjunmehta/node-columns/issues/new) and especially [development help](https://github.com/arjunmehta/node-columns).
+This module is very new and is in active development. Please consider contributing: [issues](https://github.com/arjunmehta/node-columns/issues/new), [feature requests](https://github.com/arjunmehta/node-columns/issues/new) and especially [development help](https://github.com/arjunmehta/node-columns).
 
 ---
 
