@@ -28,17 +28,17 @@ npm install --save columns
 ### Include and Create your Columns
 
 ```javascript
-var columns = require('columns').create();
+var columns = require('columns').create()
 ```
 
 ### Add Columns
 Add columns to your program. Give them a name, and set options for them. Add option flags to your program. Shortcuts will automatically be made based on the first available character of the specified option name.
 
 ```javascript
-var a = columns.addColumn("Column A");
+var a = columns.addColumn("Column A")
+var b = columns.addColumn("Column B")
 // OR
-columns.addColumn("Column B");
-columns.addColumn("Column C");
+columns.addColumn("Column C")
 ```
 
 ### Write or Pipe Text to Your Columns!
@@ -47,14 +47,17 @@ Columns act like any writable-stream does. Just add more to it, by calling the `
 
 ```javascript
 setInterval(function(){
-    columns.column("Column A").write((new Date().getSeconds() % 2 === 0) ? "TICK\n" : "TOCK\n");
-    columns.column("Column B").write("The Time: " + new Date() + "\n");
-}, 1000);
+    a.write((new Date().getSeconds() % 2 === 0) ? "TICK\n" : "TOCK\n")
+    b.write("The Time: " + new Date() + "\n")
+}, 1000)
 
-process.stdin.setRawMode(true);
-process.stdin.pipe(columns.column("Column C"));
+process.stdin.setRawMode(true)
+process.stdin.pipe(columns.column("Column C"))
 ```
 
+### That's It!
+
+----
 
 ## Advanced Usage
 
@@ -67,7 +70,7 @@ You can customize the appearance and behaviour of your columns with global setti
 ```javascript
 var columns = require('columns').create({
     column_separator: "|"    
-});
+})
 // OR
 column.column_separator: "|"    
 ```
@@ -104,10 +107,12 @@ You can set column specific settings in two main ways: when you create them usin
 
 ```javascript
 var a = columns.addColumn("A", {
-    width: "25%"
-});
+    width: "25%",
+    header: "Column A"
+})
 // OR
 a.width = "25%"
+a.header = "Column A"
 ```
 
 #### Column Widths
@@ -130,7 +135,7 @@ Set the `header` to `false` to hide the header and its separator.
 
 ```javascript
 // custom header in green
-columns.column("A").header = "\033[32mCustom Header\033[0m"; 
+columns.column("A").header = "\033[32mCustom Header\033[0m" 
 ```
 
 
@@ -147,10 +152,11 @@ Initialize and return your `columns` object. This will, by default, clear the sc
 ```javascript
 var columns = require('columns').create({
     column_separator: '|'
-});
+})
 ```
 
 Will create a column set with columns separated by the `|` character.
+
 
 ----
 
@@ -165,14 +171,14 @@ Returns a new `Column` object and simultaneously adds it to your `columns`.
 ```javascript
 var a = columns.addColumn("Column A", {
     width: "50%"
-}); 
+}) 
 // OR
-columns.addColumn("Column B");
+columns.addColumn("Column B")
 // OR
 var c = columns.addColumn({
     width: 26,
     header: "Column C"
-});
+})
 ```
 
 ### columns.column(name)
@@ -202,6 +208,7 @@ Sets the `header_separator` of all columns.
 
 ### columns.column_separator = **String**
 Sets the `column_separator` between all columns.
+
 
 ----
 
