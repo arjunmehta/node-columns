@@ -50,10 +50,11 @@ Columns act like any writable-stream would. Just add more to it, by calling the 
 
 ```javascript
 setInterval(function(){
-    columns.column("Column A").write(new Date().getSeconds() % 2 == 0 ? "TICK\n" : "TOCK\n");
+    columns.column("Column A").write((new Date().getSeconds() % 2 === 0) ? "TICK\n" : "TOCK\n");
     columns.column("Column B").write("The Time: " + new Date() + "\n");
 }, 1000);
 
+process.stdin.setRawMode(true);
 process.stdin.pipe(columns.column("Column C"));
 ```
 
