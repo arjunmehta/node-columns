@@ -1,5 +1,7 @@
 var keypress = require('keypress');
-var columns = require('../main').create();
+var columns = require('../main').create({
+    flow: false
+});
 
 
 var a = columns.addColumn("Column A");
@@ -8,7 +10,7 @@ columns.addColumn("Column B");
 columns.addColumn("Column C");
 var d = columns.addColumn();
 
-setInterval(function(){
+setInterval(function() {
     columns.column("Column A").write((new Date().getSeconds() % 2 === 0) ? "TICK\n" : "TOCK\n");
     columns.column("Column B").write("The Time: " + new Date() + "\n");
 
@@ -28,8 +30,8 @@ if (process.stdin.isTTY) {
         if (key && ((key.ctrl && key.name == 'c') || key.name == 'q')) {
             process.exit(0);
         }
-        if (key && key.name === "backspace"){
-          columns.column("Column C").write('\b');
+        if (key && key.name === "backspace") {
+            columns.column("Column C").write('\b');
         }
     });
 }

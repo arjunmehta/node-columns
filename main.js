@@ -25,6 +25,8 @@ function Columns(opts) {
         left: 0
     };
 
+    opts.flow = opts.flow === false ?  false : true;
+
     this.opts = opts;
     this.view = new MainView(this, opts.mode);
     this.columns = {};
@@ -32,6 +34,15 @@ function Columns(opts) {
 
 
 // core getter/setter properties
+
+Object.defineProperty(Columns.prototype, 'flow', {
+    get: function() {
+        return this.opts.flow;
+    },
+    set: function(flow) {
+        this.opts.flow = flow;
+    }
+});
 
 Object.defineProperty(Columns.prototype, 'margin', {
     get: function() {
@@ -53,12 +64,12 @@ Object.defineProperty(Columns.prototype, 'header_separator', {
     }
 });
 
-Object.defineProperty(Columns.prototype, 'separator', {
+Object.defineProperty(Columns.prototype, 'column_separator', {
     get: function() {
-        return this.opts.separator !== undefined ? this.opts.separator : ' ';
+        return this.opts.column_separator !== undefined ? this.opts.column_separator : ' ';
     },
-    set: function(separator) {
-        this.opts.separator = separator;
+    set: function(column_separator) {
+        this.opts.column_separator = column_separator;
         this.view.refresh();
     }
 });
@@ -66,14 +77,23 @@ Object.defineProperty(Columns.prototype, 'separator', {
 
 // core prototype methods
 
+Columns.prototype.redraw = function() {
+    this.view.refresh();
+};
+
 Columns.prototype.column = function(name) {
     return this.columns[name];
 };
 
 Columns.prototype.addColumn = function(name, opts) {
 
-	opts = opts || {};
-	opts.header = opts.header !== undefined ? opts.header : name;
+    if (typeof name === "object" && opts === undefined) {
+        opts = name;
+        name = undefined;
+    }
+
+    opts = opts || {};
+    opts.header = opts.header !== undefined ? opts.header : name;
 
     name = name || 'column_' + (Math.random()).toString(36) + idCount++;
     this.columns[name] = new Column(this, name, opts);

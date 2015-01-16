@@ -7,8 +7,9 @@ var columns = require('../main').create({
         right: 5,
         left: 5
     },
-    separator: ' | ',
-    header_separator: false
+    column_separator: ' | ',
+    header_separator: '-_-_',
+    flow: false
 });
 
 var a = columns.addColumn();
@@ -19,7 +20,7 @@ columns.addColumn("A2", {
 
 columns.addColumn("A3", {
     width: 40,
-    header: "testing"
+    header: "CUSTOM HEADER"
 });
 
 columns.addColumn("A4");
@@ -30,45 +31,50 @@ columns.addColumn("A5");
 
 // random writes
 
-setInterval(function(){
-	a.write(randomTruncate("AAAAAAAA" + new Date().getSeconds() + "\nAAAAAAAAAAAAAAABBBBSBBSBBBSAAAA"));
-}, 550);
+count = 0;
 
-setInterval(function(){
-	columns.column("A2").write(randomTruncate("Hello0000\n" + new Date() + "JJJJJJJJJJJJJJJAJJAGHAKJGAJHGAJAHGJAHGAJHGAJHGAJHGAJHAGJAHGJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ"));
-}, 500);
+setInterval(function() {
+    a.write(randomTruncate("A" + count + "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA") + "\n");
+}, 50);
 
-
-setInterval(function(){
-	columns.column("A3").write(randomTruncate("\033[32mCCCCCCCCCCCC\n" + new Date().getTime() + "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"));
-}, 500);
+setInterval(function() {
+    columns.column("A2").write(randomTruncate("B" + count + "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB") + "\n");
+}, 50);
 
 
-setInterval(function(){
-	columns.column("A4").write(randomTruncate("How are you Today???\n" + columns.column("A3").width + new Date().getTime() +  "KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK\n"));
-}, 1000);
+setInterval(function() {
+    columns.column("A3").write(randomTruncate("C" + count + "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC") + "\n");
+}, 50);
 
-setInterval(function(){
-	columns.column("A5").write(randomTruncate("\033[2KDDDDDDDDDDDDDDDDDD\nDDDDD" + columns.column("A5").width + new Date().getTime() +  "\n"));
-}, 100);
 
-function randomTruncate(line){
-	return line.substring(0, 6 + Math.random()*50);
+setInterval(function() {
+    columns.column("A4").write(randomTruncate("D" + count + "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD") + "\n");
+}, 50);
+
+setInterval(function() {
+    columns.column("A5").write(randomTruncate("E" + count + "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE") + "\n");
+    count++;
+}, 50);
+
+function randomTruncate(line) {
+    return line.substring(0, 6 + Math.random() * 50);
 }
+
+
 
 
 // exit properly so we can restore state correctly
 
-if(process.stdin.isTTY){
+if (process.stdin.isTTY) {
 
-  keypress(process.stdin);  
-  process.stdin.setRawMode(true);
+    keypress(process.stdin);
+    process.stdin.setRawMode(true);
 
-  process.stdin.on('keypress', function (ch, key) {
+    process.stdin.on('keypress', function(ch, key) {
 
-    if (key && ((key.ctrl && key.name == 'c') || key.name == 'q') ) {
-      process.stdin.pause();
-      process.exit(0);
-    }
-  });
+        if (key && ((key.ctrl && key.name == 'c') || key.name == 'q')) {
+            process.stdin.pause();
+            process.exit(0);
+        }
+    });
 }
