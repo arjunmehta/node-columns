@@ -16,7 +16,6 @@ This module takes **any number of text streams and puts them neatly into full sc
 - **colour support and limited formatting support**
 - **custom column headers, and separators for headers and columns**.
 - **choice of write efficiency modes (flow or overflow)**
-- 
 
 ## Installation
 ```bash
