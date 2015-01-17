@@ -10,7 +10,7 @@ var columns = require('../main').create({
     column_separator: ' | ',
     header_separator: '-_-_',
     flow_mode: 'reset',
-    overflow: 0
+    overflow: 3
 });
 
 var a = columns.addColumn();
