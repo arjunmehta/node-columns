@@ -161,14 +161,17 @@ Initialize and return your `columns` object. This will, by default, clear the sc
     - `header_separator` **String**: Specify a string to be repeated horizontally under defined headers.
     - `column_separator` **String**: Specify a string to be repeated vertically between columns.
     - `margin` **Object**: Set the margins for the entire column set in the form: `{top: Number, right: Number, bottom: Number, left: Number }`
+    - `flow_mode` **String**: Set the type of flow mode to use when rendering buffer overflows: `reset` or `push`. If using `reset` you can also set the `overflow` option.
+    - `overflow` **Number**: Set along with `flow_mode:'reset'`, the number of buffer lines to overflow after reset.
 
 ```javascript
 var columns = require('columns').create({
-    column_separator: '|'
+    column_separator: '|',
+    flow_mode: 'push'
 })
 ```
 
-Will create a column set with columns separated by the `|` character.
+Will create a column set with columns separated by the `|` character with the `push` flow mode.
 
 
 ----
