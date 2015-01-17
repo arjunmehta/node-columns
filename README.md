@@ -137,7 +137,7 @@ It should be noted that columns that do not fit in the terminal, based on their 
 ```javascript
 columns.column("A").width = "25%" // approximately 25% of the tty width
 // OR
-columns.column("A").width = "30" //30 tty columns wide
+columns.column("A").width = 30 //30 tty columns wide
 ```
 
 #### Add Custom Headers
