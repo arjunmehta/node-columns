@@ -212,8 +212,11 @@ var b = columns.column("Column B")
 b.width = "30%"
 ```
 
-### columns.flow = **Boolean**
-Toggle flow mode, `true` or `false`. Default is `true`.
+### columns.flow_mode = **String**
+Sets flow mode. Choose between `reset` or `push`. Default is `push`.
+
+### columns.overflow = **Number**
+If `flow_mode` is set to `reset`, you can choose how many lines from the buffer will be brought in after reset occurs.
 
 ### columns.header_separator = **String**
 Sets the `header_separator` of all columns. Set to `false` (default) to hide.
