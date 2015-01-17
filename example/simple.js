@@ -1,18 +1,15 @@
 var keypress = require('keypress');
-var columns = require('../main').create({
-    flow: false
-});
+var columns = require('../main').create();
 
 
 var a = columns.addColumn("Column A");
-
-columns.addColumn("Column B");
+var b = columns.addColumn("Column B");
 columns.addColumn("Column C");
 var d = columns.addColumn();
 
 setInterval(function() {
-    columns.column("Column A").write((new Date().getSeconds() % 2 === 0) ? "TICK\n" : "TOCK\n");
-    columns.column("Column B").write("The Time: " + new Date() + "\n");
+    a.write((new Date().getSeconds() % 2 === 0) ? "TICK\n" : "TOCK\n");
+    b.write("The Time: " + new Date() + "\n");
 
     d.write("The Time: " + new Date() + "\n");
 }, 1000);

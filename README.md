@@ -55,7 +55,7 @@ process.stdin.setRawMode(true)
 process.stdin.pipe(columns.column("Column C"))
 ```
 
-### That's It!
+
 
 ----
 
@@ -100,6 +100,19 @@ columns.margin = {
 }
 ```
 
+#### Flow Mode
+You have two options with how your columns handle overflows:
+
+**Push Mode**: When your column buffer fills up past the height of your column, the text will "push" the previous buffer up, the same behaviour as most terminals. This will essentially redraw the column output, because it is shifting every line up by 1.
+
+**Reset Mode**: When text reaches the bottom of the column, the column view is cleared (though the buffer remains), and printing begins again at the top of the column. This is actually much more efficient (less re-writing of the screen) and recommended for remote connections. It also makes the terminal do less work. If you set this mode, you can also set how many rows of the buffer will `overflow` after reset.
+
+```javascript
+columns.flow_mode = 'push'
+// OR
+columns.flow_mode = 'reset'
+columns.overflow = 4;
+```
 
 ### Column Specific Settings
 
@@ -199,15 +212,11 @@ b.width = "30%"
 ### columns.flow = **Boolean**
 Toggle flow mode, `true` or `false`. Default is `true`.
 
-`true`: Will behave like any terminal would. When text is written to the column, it will be added to the bottom, and all text above will flow up.
-
-`false`: When text reached the bottom of the column, the column is cleared, and text begins again at the top of the column. This is actually much more efficient (less re-writing of the screen) and recommended for remote connections.
-
 ### columns.header_separator = **String**
-Sets the `header_separator` of all columns.
+Sets the `header_separator` of all columns. Set to `false` (default) to hide.
 
 ### columns.column_separator = **String**
-Sets the `column_separator` between all columns.
+Sets the `column_separator` between all columns. Set to `false` to hide. Default is a blank space `' '`.
 
 
 ----

@@ -25,7 +25,8 @@ function Columns(opts) {
         left: 0
     };
 
-    opts.flow = opts.flow === false ?  false : true;
+    opts.flow = opts.flow_mode === 'reset' ?  false : true;
+    opts.overflow = opts.overflow !== undefined ? opts.overflow : 3;
 
     this.opts = opts;
     this.view = new MainView(this, opts.mode);
@@ -35,12 +36,21 @@ function Columns(opts) {
 
 // core getter/setter properties
 
-Object.defineProperty(Columns.prototype, 'flow', {
+Object.defineProperty(Columns.prototype, 'flow_mode', {
     get: function() {
-        return this.opts.flow;
+        return this.opts.flow === false ? 'reset' : 'push' ;
     },
     set: function(flow) {
-        this.opts.flow = flow;
+        this.opts.flow = flow === 'reset' ? false : true;
+    }
+});
+
+Object.defineProperty(Columns.prototype, 'overflow', {
+    get: function() {
+        return this.opts.overflow;
+    },
+    set: function(overflow) {
+        this.opts.overflow = overflow;
     }
 });
 

@@ -9,7 +9,8 @@ var columns = require('../main').create({
     },
     column_separator: ' | ',
     header_separator: '-_-_',
-    flow: false
+    flow_mode: 'reset',
+    overflow: 0
 });
 
 var a = columns.addColumn();
@@ -35,26 +36,26 @@ count = 0;
 
 setInterval(function() {
     a.write(randomTruncate("A" + count + "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA") + "\n");
-}, 50);
+}, 500);
 
 setInterval(function() {
     columns.column("A2").write(randomTruncate("B" + count + "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB") + "\n");
-}, 50);
+}, 500);
 
 
 setInterval(function() {
     columns.column("A3").write(randomTruncate("C" + count + "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC") + "\n");
-}, 50);
+}, 500);
 
 
 setInterval(function() {
     columns.column("A4").write(randomTruncate("D" + count + "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD") + "\n");
-}, 50);
+}, 500);
 
 setInterval(function() {
     columns.column("A5").write(randomTruncate("E" + count + "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE") + "\n");
     count++;
-}, 50);
+}, 500);
 
 function randomTruncate(line) {
     return line.substring(0, 6 + Math.random() * 50);
