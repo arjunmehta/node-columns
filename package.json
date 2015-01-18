@@ -33,7 +33,6 @@
   "dependencies": {
     "ansi-regex": "~1.1.0",
     "strip-ansi": "~2.0.1",
-    "wcwidth": "^1.0.0",
     "wcwidth.js": "~1.0.0"
   }
 }
