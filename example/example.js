@@ -10,7 +10,8 @@ var columns = require('../main').create({
     column_separator: ' | ',
     header_separator: '-_-_',
     flow_mode: 'reset',
-    overflow: 3
+    overflow: 3,
+    // mode: "debug"
 });
 
 var a = columns.addColumn();
@@ -35,7 +36,7 @@ columns.addColumn("A5");
 count = 0;
 
 setInterval(function() {
-    a.write(randomTruncate("A" + count + "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA") + "\n");
+    a.write("A" + count + "한글한글한글한글한글한글한글한글한글한글한글한글한글한글한글한글한글한글" + "\n");
 }, 500);
 
 setInterval(function() {
