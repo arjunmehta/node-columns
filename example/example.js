@@ -40,11 +40,14 @@ var color;
 //     a.write("A" + count + "한글한글한글한글한글한글한글한글한글한글한글한글한글한글한글한글한글한글" + "\n");
 // }, 500);
 
+// columns.column("A2").write('\033[43m');
+
 setInterval(function() {
-    if (count % 3 === 0) {
-        color = Math.round(Math.random() * 10) + 30;
+    if (count % 1 === 0) {
+        color = Math.round(Math.random() * 255);
     }
-    columns.column("A2").write(randomTruncate("B" + color + count + (count % 3 === 0 ? "\033[" + (color) + 'm' : '') + "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB") + "\n");
+    columns.column("A2").write("B" + color + '' + count + (count % 1 === 0 ? "\033[38;5;" + (color) + 'm' : '') + randomTruncate("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB") + "\n");
+    count++;
 }, 500);
 
 
