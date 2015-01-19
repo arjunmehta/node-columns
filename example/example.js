@@ -34,29 +34,33 @@ columns.addColumn("A5");
 // random writes
 
 count = 0;
+var color;
+
+// setInterval(function() {
+//     a.write("A" + count + "한글한글한글한글한글한글한글한글한글한글한글한글한글한글한글한글한글한글" + "\n");
+// }, 500);
 
 setInterval(function() {
-    a.write("A" + count + "한글한글한글한글한글한글한글한글한글한글한글한글한글한글한글한글한글한글" + "\n");
-}, 500);
-
-setInterval(function() {
-    columns.column("A2").write(randomTruncate("B" + count + "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB") + "\n");
-}, 500);
-
-
-setInterval(function() {
-    columns.column("A3").write(randomTruncate("C" + count + "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC") + "\n");
+    if (count % 3 === 0) {
+        color = Math.round(Math.random() * 10) + 30;
+    }
+    columns.column("A2").write(randomTruncate("B" + color + count + (count % 3 === 0 ? "\033[" + (color) + 'm' : '') + "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB") + "\n");
 }, 500);
 
 
-setInterval(function() {
-    columns.column("A4").write(randomTruncate("D" + count + "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD") + "\n");
-}, 500);
+// setInterval(function() {
+//     columns.column("A3").write(randomTruncate("C" + count + "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC") + "\n");
+// }, 500);
 
-setInterval(function() {
-    columns.column("A5").write(randomTruncate("E" + count + "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE") + "\n");
-    count++;
-}, 500);
+
+// setInterval(function() {
+//     columns.column("A4").write(randomTruncate("D" + count + "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD") + "\n");
+// }, 500);
+
+// setInterval(function() {
+//     columns.column("A5").write(randomTruncate("E" + count + "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE") + "\n");
+//     count++;
+// }, 500);
 
 function randomTruncate(line) {
     return line.substring(0, 6 + Math.random() * 50);
