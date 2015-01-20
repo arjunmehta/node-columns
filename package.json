@@ -11,12 +11,10 @@
     "url": "https://github.com/arjunmehta/node-columns.git"
   },
   "devDependencies": {
-    "benchmark": "~1.0.0",
-    "brake": "^1.0.1",
+    "brake": "~1.0.1",
     "keypress": "~0.2.1",
     "nodeunit": "~0.8.8",
     "request": "~2.51.0",
-    "slow-stream": "0.0.4",
     "split": "^0.3.2"
   },
   "keywords": [

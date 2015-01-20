@@ -1,19 +1,18 @@
 var keypress = require('keypress');
 
 var columns = require('../main').create({
-    // margin: {
-    //     top: 5,
-    //     bottom: 2,
-    //     right: 5,
-    //     left: 5
-    // },
-    // column_separator: ' | ',
-    // header_separator: '-_-_',
-    // flow_mode: 'reset',
+    margin: {
+        top: 5,
+        bottom: 2,
+        right: 5,
+        left: 5
+    },
+    column_separator: ' | ',
+    header_separator: '-_-_',
+    flow_mode: 'reset',
     overflow: 3,
     maximum_buffer: 300,
     tab_size: 2
-    // mode: "debug"
 });
 
 var a = columns.addColumn();

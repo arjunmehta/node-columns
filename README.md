@@ -39,9 +39,11 @@ Add columns to your program. Give them a name, and set options for them. Add opt
 
 ```javascript
 var a = columns.addColumn('Column A')
-var b = columns.addColumn('Column B')
 // OR
-columns.addColumn('Column C')
+columns.addColumn('Column B')
+// OR
+var c = columns.addColumn('Column C', {raw : true})
+
 ```
 
 ### Write or Pipe Text to Your Columns!
@@ -51,11 +53,11 @@ Columns act like any writable-stream does. Just add more to it, by calling the `
 ```javascript
 setInterval(function(){
     a.write((new Date().getSeconds() % 2 === 0) ? 'TICK\n' : 'TOCK\n')
-    b.write('The Time: ' + new Date() + '\n')
+    columns.column("Column B").write('The Time: ' + new Date() + '\n')
 }, 1000)
 
 process.stdin.setRawMode(true)
-process.stdin.pipe(columns.column('Column C'))
+process.stdin.pipe(c)
 ```
 
 
@@ -103,6 +105,15 @@ columns.column('A').header = '\033[32mCustom Header\033[0m'
 ```
 
 
+#### RAW mode
+
+By default, columns parse incoming data by new lines. If you'd like to have your columns display as the buffer comes in, create it with the `raw` option. This must be set when you create your column.
+
+```javascript
+var a = columns.addColumn('A', {raw: true})
+```
+
+
 ### Global Columns Settings
 
 You can customize the appearance and behaviour of your columns with global settings, which can be set in a few ways: by passing `options` through when you first create your columns; or by setting them individual properties.
@@ -143,15 +154,17 @@ columns.margin = {
 #### Flow Mode
 You have two options with how your columns handle overflows:
 
-**Push Mode**: When your column buffer fills up past the height of your column, the text will 'push' the previous buffer up, the same behaviour as most terminals. This will essentially redraw the column output, because it is shifting every line up by 1.
+**Push Mode**: When your column buffer fills up past the height of your column, the text will 'push' the previous buffer up, the same behaviour as most terminals. This will essentially redraw the column output, because it is shifting every line up by 1. This is the default.
 
 **Reset Mode**: When text reaches the bottom of the column, the column view is cleared (though the buffer remains), and printing begins again at the top of the column. This is actually much more efficient (less re-writing of the screen) and recommended for remote connections. It also makes the terminal do less work. If you set this mode, you can also set how many rows of the buffer will `overflow` after reset.
 
+If you need to adjust the flow mode, it must be set when you create your columns:
+
 ```javascript
-columns.flow_mode = 'push'
-// OR
-columns.flow_mode = 'reset'
-columns.overflow = 4
+var columns = require('columns').create({
+    flow_mode: 'reset',
+    overflow: 4
+})
 ```
 
 
