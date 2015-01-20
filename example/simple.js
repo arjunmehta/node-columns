@@ -4,7 +4,7 @@ var columns = require('../main').create();
 
 var a = columns.addColumn("Column A");
 var b = columns.addColumn("Column B");
-columns.addColumn("Column C");
+columns.addColumn("Column C", {raw: true});
 
 setInterval(function() {
     a.write((new Date().getSeconds() % 2 === 0) ? "TICK\n" : "TOCK\n");
