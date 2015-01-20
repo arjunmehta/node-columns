@@ -27,6 +27,8 @@ function Columns(opts) {
 
     opts.flow = opts.flow_mode === 'reset' ?  false : true;
     opts.overflow = opts.overflow !== undefined ? opts.overflow : 3;
+    opts.maximum_buffer = opts.maximum_buffer || 500;
+    opts.tab_size = opts.tab_size || 2;
 
     this.opts = opts;
     this.view = new MainView(this, opts.mode);

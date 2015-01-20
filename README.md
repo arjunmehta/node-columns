@@ -56,7 +56,6 @@ process.stdin.pipe(columns.column('Column C'))
 ```
 
 
-
 ----
 
 ## Advanced Usage

@@ -1,18 +1,18 @@
 var keypress = require('keypress');
 
 var columns = require('../main').create({
-    margin: {
-        top: 5,
-        bottom: 2,
-        right: 5,
-        left: 5
-    },
-    column_separator: ' | ',
-    header_separator: '-_-_',
-    flow_mode: 'reset',
+    // margin: {
+    //     top: 5,
+    //     bottom: 2,
+    //     right: 5,
+    //     left: 5
+    // },
+    // column_separator: ' | ',
+    // header_separator: '-_-_',
+    // flow_mode: 'reset',
     overflow: 3,
-    max_buffer: 30,
-    tab_size: 4
+    maximum_buffer: 300,
+    tab_size: 2
     // mode: "debug"
 });
 
@@ -40,7 +40,7 @@ var color;
 
 setInterval(function() {
     a.write("A" + count + "한글\t한글한글한글한글한글한글한글한글한글한글한글한글한글한글한글한글한글" + "\n");
-}, 10);
+}, 220);
 
 // columns.column("A2").write('\033[43m');
 
@@ -50,22 +50,22 @@ setInterval(function() {
     }
     columns.column("A2").write("B" + color + '' + count + (count % 1 === 0 ? "\033[38;5;" + (color) + 'm' : '') + randomTruncate("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB") + "\n");
     count++;
-}, 10);
+}, 110);
 
 
 setInterval(function() {
-    columns.column("A3").write(randomTruncate("C" + count + "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC") + "\n");
-}, 10);
+    columns.column("A3").write(randomTruncate("C" + count + "CC\tCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC") + "\n");
+}, 50);
 
 
 setInterval(function() {
     columns.column("A4").write(randomTruncate("D" + count + "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD") + "\n");
-}, 10);
+}, 500);
 
 setInterval(function() {
     columns.column("A5").write(randomTruncate("E" + count + "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE") + "\n");
     count++;
-}, 10);
+}, 200);
 
 function randomTruncate(line) {
     return line.substring(0, 6 + Math.random() * 50);
