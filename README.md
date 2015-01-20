@@ -17,6 +17,9 @@ This module takes **any number of text streams and puts them neatly into full sc
 - **custom column headers, and separators for headers and columns**.
 - **choice of buffer flow modes for display efficiency control**
 
+![demo image](https://raw.githubusercontent.com/arjunmehta/node-columns/image/image/demo-main.gif)
+
+
 ## Installation
 ```bash
 npm install --save columns
