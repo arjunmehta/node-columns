@@ -11,7 +11,8 @@ var columns = require('../main').create({
     header_separator: '-_-_',
     flow_mode: 'reset',
     overflow: 3,
-    max_buffer: 30
+    max_buffer: 30,
+    tab_size: 4
     // mode: "debug"
 });
 

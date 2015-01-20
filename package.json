@@ -1,6 +1,6 @@
 {
   "name": "columns",
-  "version": "0.3.1",
+  "version": "0.5.0",
   "description": "Stream your text streams into streams of column streams.",
   "main": "main.js",
   "scripts": {
@@ -31,8 +31,6 @@
   },
   "homepage": "https://github.com/arjunmehta/node-columns",
   "dependencies": {
-    "ansi-regex": "~1.1.0",
-    "strip-ansi": "~2.0.1",
     "wcwidth.js": "~1.0.0"
   }
 }
