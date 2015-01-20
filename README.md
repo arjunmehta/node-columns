@@ -195,6 +195,8 @@ Initialize and return your `columns` object. This will, by default, clear the sc
     - `margin` **Object**: Set the margins for the entire column set in the form: `{top: Number, right: Number, bottom: Number, left: Number }`
     - `flow_mode` **String**: Set the type of flow mode to use when rendering buffer overflows: `reset` or `push`. If using `reset` you can also set the `overflow` option.
     - `overflow` **Number**: Set along with `flow_mode:'reset'`, the number of buffer lines to overflow after reset.
+    - `maximum_buffer` **Number**: Set the number of lines you want available stored in your buffer (Default 500).
+    - `tab_size` **Number**: Set the number of spaces you want to render your tabs as.
 
 ```javascript
 var columns = require('columns').create({
