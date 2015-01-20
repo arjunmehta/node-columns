@@ -16,7 +16,7 @@ exports['Exported Properly'] = function(test) {
 exports['Column Line'] = function(test) {
     test.expect(2);
 
-    var legacy_line = new ColumnLine("\033[32;33;35;31;37;32;33;38;5;24;35;31;37;31mHi there! How are you Today?")
+    var legacy_line = new ColumnLine("\033[32;33;35;31;37;32;33;38;5;24;35;31;37;31;0mHi there! How are you Today?")
     var line = new ColumnLine("Hi there! \033[32mHow are you Today?", legacy_line);
 
     test.equal(typeof line, 'object');
