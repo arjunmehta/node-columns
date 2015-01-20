@@ -3,6 +3,8 @@
 
 ![columns title image](https://raw.githubusercontent.com/arjunmehta/node-columns/image/image/cover.png)
 
+![demo image](https://raw.githubusercontent.com/arjunmehta/node-columns/image/image/demo-main.gif)
+
 #### In Active Development
 
 This module is very new and is in active development. Please consider contributing: [issues](https://github.com/arjunmehta/node-columns/issues/new), [feature requests](https://github.com/arjunmehta/node-columns/issues/new) and especially [development help](https://github.com/arjunmehta/node-columns).
@@ -16,8 +18,6 @@ This module takes **any number of text streams and puts them neatly into full sc
 - **ANSI code support (colours and text styles)**
 - **custom column headers, and separators for headers and columns**.
 - **choice of buffer flow modes for display efficiency control**
-
-![demo image](https://raw.githubusercontent.com/arjunmehta/node-columns/image/image/demo-main.gif)
 
 
 ## Installation
