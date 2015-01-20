@@ -169,10 +169,12 @@ var columns = require('columns').create({
 
 
 #### Maximum Buffer Size
-By default, the maximum buffer size will be `500` lines per column. If you need more or less, adjust the `maximum_buffer` option to control this.
+By default, the maximum buffer size will be `500` lines per column. If you need more or less, adjust the `maximum_buffer` option to control this. Again, you'll need to set this when you are creating your columns instance:
 
 ```javascript
-columns.maximum_buffer = 2000
+var columns = require('columns').create({
+    maximum_buffer: 2000
+}) 
 ```
 
 
