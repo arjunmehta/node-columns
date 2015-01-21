@@ -42,7 +42,7 @@ var a = columns.addColumn('Column A')
 // OR
 columns.addColumn('Column B')
 // OR
-var c = columns.addColumn('Column C', {raw : true})
+var c = columns.addColumn('Column C', {raw : true}) // character feed
 
 ```
 
@@ -83,9 +83,9 @@ a.header = 'Column A'
 
 #### Column Widths
 
-By default, columns distribute their widths evenly to the size of the TTY. But columns widths can be fixed or scaled to a percentage of the terminal width.
+By default, columns distribute their widths evenly to the size of the TTY. But column widths can also be set to a fixed value, or scaled to a percentage of the terminal width.
 
-It should be noted that columns that do not fit in the terminal, based on their set width will not be rendered. They will still be able to receive input, and their buffer will be displayed  again if the terminal is scaled enough to fit them, or other columns are removed.
+Columns that do not fit in the terminal based on their determined width will be automatically hidden from view. They will still be able to receive input to their buffer, so written data will be displayed again if the terminal is scaled enough to fit them, or other columns are removed.
 
 ```javascript
 columns.column('A').width = '25%' // approximately 25% of the tty width

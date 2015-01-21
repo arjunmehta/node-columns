@@ -15,7 +15,7 @@ process.stdin.setRawMode(true);
 process.stdin.pipe(columns.column("Column C"));
 
 
-// exit the program safely to clean up terminal output properly
+// exit the program gravefully to clean up terminal output properly
 
 if (process.stdin.isTTY) {
 
