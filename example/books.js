@@ -7,20 +7,21 @@ var columns = require('../main').create({
     overflow: 3,
     maximum_buffer: 300,
     tab_size: 2,
-    column_separator: '  '
+    column_separator: '  ',
+    flow_mode: 'reset'
 });
 
-var a = columns.addColumn('SHERLOCK HOLMES', {width: '23%', raw: true}), //http://www.gutenberg.org/ebooks/1661.txt.utf-8
-    b = columns.addColumn('RELATIVITY', {width: '17%', raw: true}), //http://www.gutenberg.org/ebooks/7105.txt.utf-8
+var a = columns.addColumn('SHERLOCK HOLMES', {width: '23%', wrap: true, raw: true}), //http://www.gutenberg.org/ebooks/1661.txt.utf-8
+    b = columns.addColumn('RELATIVITY', {width: '17%', wrap: true, raw: true}), //http://www.gutenberg.org/ebooks/7105.txt.utf-8
     c = columns.addColumn('HUCKLEBERRY FINN', {width: '60%', raw: true}); //http://www.gutenberg.org/ebooks/5001.txt.utf-8
 
     a.write('\033[31m'); // make this column red
     b.write('\033[32m'); // make this column green
     c.write('\033[36m'); // make this column blue
 
-request('http://www.gutenberg.org/ebooks/1661.txt.utf-8').pipe(brake(300)).pipe(a);
-request('http://www.gutenberg.org/ebooks/5001.txt.utf-8').pipe(brake(300)).pipe(b);
-request('http://www.gutenberg.org/ebooks/7105.txt.utf-8').pipe(brake(300)).pipe(c);
+request('http://www.gutenberg.org/ebooks/1661.txt.utf-8').pipe(brake(10)).pipe(a);
+request('http://www.gutenberg.org/ebooks/5001.txt.utf-8').pipe(brake(10)).pipe(b);
+request('http://www.gutenberg.org/ebooks/7105.txt.utf-8').pipe(brake(10)).pipe(c);
 
 
 // exit properly so we can restore state correctly

@@ -9,7 +9,7 @@ var columns = require('../main').create({
     },
     column_separator: ' | ',
     header_separator: '-_-_',
-    // flow_mode: 'reset',
+    flow_mode: 'reset',
     overflow: 3,
     maximum_buffer: 300,
     tab_size: 2,
@@ -54,7 +54,7 @@ setInterval(function() {
     }
     columns.column("A2").write("B" + '' + count + (count % 1 === 0 ? "\033[38;5;" + (color) + 'm' : '') + randomTruncate("BB BBBBBBBBBBBBBBBBBB BBBBBBB BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB") + "\n");
     count++;
-}, 1000);
+}, 210);
 
 
 setInterval(function() {
