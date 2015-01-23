@@ -1,10 +1,10 @@
 var keypress = require('keypress');
-var columns = require('../main').create();
+var columns = require('../main').create({flow_mode: 'reset'});
 
 
 var a = columns.addColumn("Column A");
 var b = columns.addColumn("Column B");
-columns.addColumn("Column C", {raw: true});
+columns.addColumn("Column C", {raw: true, wrap: true});
 
 setInterval(function() {
     a.write((new Date().getSeconds() % 2 === 0) ? "TICK\n" : "TOCK\n");

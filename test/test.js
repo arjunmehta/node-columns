@@ -3,6 +3,8 @@ var columns = require('../main').create({
 });
 var ColumnLine = require('../lib/ColumnLine');
 
+var line = new ColumnLine("BB BBBBBB BBBBBBB BBBBB BBBBBBB BBBBBBBBBBB BBBBBB BBBBBBB BBBBBBBB");
+console.log(line.trimmed(10, true));
 
 exports['Exported Properly'] = function(test) {
     test.expect(2);

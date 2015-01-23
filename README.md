@@ -7,15 +7,13 @@
 
 #### In Active Development
 
-This module is very new and is in active development. Please consider contributing: [issues](https://github.com/arjunmehta/node-columns/issues/new), [feature requests](https://github.com/arjunmehta/node-columns/issues/new) and especially [development help](https://github.com/arjunmehta/node-columns).
-
----
+This module is very new and is in active development. Please consider contributing: [issues](https://github.com/arjunmehta/node-columns/issues/new), [feature requests](https://github.com/arjunmehta/node-columns/issues/new) and especially [development help](https://github.com/arjunmehta/node-columns), and [tests](https://github.com/arjunmehta/node-columns).
 
 This module takes **any number of text streams and puts them neatly into full screen columns**.
 
 - **columns act as writable streams**
 - **a minimal, yet easily scalable interface**
-- **ANSI code support (colours and text styles)**
+- **ANSI code support (colours and text styles), line wrapping and raw modes(!)**
 - **custom column headers, and separators for headers and columns**.
 - **choice of buffer flow modes for display efficiency control**
 
@@ -61,15 +59,13 @@ process.stdin.pipe(c)
 ```
 
 
-----
-
 ## Advanced Usage
 
 The above was just to get you started. Columns can do a whole lot more, and can be customized in a few ways.
 
 ### Column Specific Settings
 
-You can set column specific settings in two main ways: when you create them using options, or by setting properties on already instantiated columns.
+You can set column specific settings in two main ways: when you create them using options, or by setting properties on already instantiated columns. **Some settings can only be set upon creation**.
 
 ```javascript
 var a = columns.addColumn('A', {
@@ -81,7 +77,7 @@ a.width = '25%'
 a.header = 'Column A'
 ```
 
-#### Column Widths
+#### Column Width
 
 By default, columns distribute their widths evenly to the size of the TTY. But column widths can also be set to a fixed value, or scaled to a percentage of the terminal width.
 
@@ -93,7 +89,16 @@ columns.column('A').width = '25%' // approximately 25% of the tty width
 columns.column('A').width = 30 //30 tty columns wide
 ```
 
-#### Add Custom Headers
+#### Line Wrapping
+
+By default, column lines are not wrapped. If you'd like to enable this experimental feature, use the `wrap` option when adding your column.
+
+```javascript
+var a = columns.addColumn('A', {wrap: true})
+```
+
+
+#### Custom Header
 
 By default, columns are displayed with the given column name as the header. If you'd like to set a different header, this can be done easily with the `header` property for each column.
 
@@ -209,9 +214,6 @@ var columns = require('columns').create({
 
 Will create a column set with columns separated by the `|` character with the `push` flow mode.
 
-
-----
-
 ### columns.addColumn(name, options)
 Returns a new `Column` object and simultaneously adds it to your `columns`.
 
@@ -219,6 +221,8 @@ Returns a new `Column` object and simultaneously adds it to your `columns`.
 - `options` **Object**:
     - `width` **String|Number**: Set the width of this column. This can be as a percentage (**String** with `%`) or a number of terminal characters width (**Number**)
     - `header` **String**: Specify the header title of the column.
+    - `raw` **Boolean**: Set if you want the stream to be read in by character instead of by line.
+    - `wrap` **Boolean**: Set to enable line wrapping. (Experimental).
     
 ```javascript
 var a = columns.addColumn('Column A', {
