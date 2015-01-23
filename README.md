@@ -219,7 +219,7 @@ Returns a new `Column` object and simultaneously adds it to your `columns`.
 
 - `name` **String**: Set the name of your column. This will by default also set the header of your column to this value. If you do not provide a name, you will not be able to refer to it with the **columns.column()** method.
 - `options` **Object**:
-    - `width` **String|Number**: Set the width of this column. This can be as a percentage (**String** with `%`) or a number of terminal characters width (**Number**)
+    - `width` **String|Number**: Set the width of this column. This can be as a percentage (**String** with `%`) or a number of terminal characters width (**Number**).
     - `header` **String**: Specify the header title of the column.
     - `raw` **Boolean**: Set if you want the stream to be read in by character instead of by line.
     - `wrap` **Boolean**: Set to enable line wrapping. (Experimental).
@@ -263,9 +263,6 @@ Sets the `header_separator` of all columns. Set to `false` (default) to hide.
 
 ### columns.column_separator = **String**
 Sets the `column_separator` between all columns. Set to `false` to hide. Default is a blank space `' '`.
-
-
-----
 
 ### column.write(chunk)
 Write data to your column!! Stream data will be encoded as `UTF8`.
