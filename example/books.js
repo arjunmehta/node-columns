@@ -19,9 +19,9 @@ var a = columns.addColumn('SHERLOCK HOLMES', {width: '23%', wrap: true, raw: tru
     b.write('\033[32m'); // make this column green
     c.write('\033[36m'); // make this column blue
 
-request('http://www.gutenberg.org/ebooks/1661.txt.utf-8').pipe(brake(10)).pipe(a);
-request('http://www.gutenberg.org/ebooks/5001.txt.utf-8').pipe(brake(10)).pipe(b);
-request('http://www.gutenberg.org/ebooks/7105.txt.utf-8').pipe(brake(10)).pipe(c);
+request('http://mirror.its.dal.ca/gutenberg/1/6/6/1661/1661.txt').pipe(brake(50)).pipe(a);
+request('https://archive.org/download/theeinsteintheor11335gut/11335.txt').pipe(brake(50)).pipe(b);
+request('http://mirror.its.dal.ca/gutenberg/7/1/0/7105/7105.txt').pipe(brake(50)).pipe(c);
 
 
 // exit properly so we can restore state correctly
