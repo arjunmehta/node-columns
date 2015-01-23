@@ -7,7 +7,7 @@
 
 #### In Active Development
 
-This module is very new and is in active development. Please consider contributing: [issues](https://github.com/arjunmehta/node-columns/issues/new), [feature requests](https://github.com/arjunmehta/node-columns/issues/new) and especially [development help](https://github.com/arjunmehta/node-columns).
+This module is very new and is in active development. Please consider contributing: [issues](https://github.com/arjunmehta/node-columns/issues/new), [feature requests](https://github.com/arjunmehta/node-columns/issues/new) and especially [development help](https://github.com/arjunmehta/node-columns), and [tests](https://github.com/arjunmehta/node-columns).
 
 ---
 
@@ -60,8 +60,6 @@ process.stdin.setRawMode(true)
 process.stdin.pipe(c)
 ```
 
-
-----
 
 ## Advanced Usage
 
@@ -208,9 +206,6 @@ var columns = require('columns').create({
 ```
 
 Will create a column set with columns separated by the `|` character with the `push` flow mode.
-
-
-----
 
 ### columns.addColumn(name, options)
 Returns a new `Column` object and simultaneously adds it to your `columns`.
