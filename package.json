@@ -33,6 +33,7 @@
   },
   "homepage": "https://github.com/arjunmehta/node-columns",
   "dependencies": {
+    "strip-bom": "^1.0.0",
     "wcwidth.js": "~1.0.0"
   }
 }

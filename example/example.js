@@ -9,7 +9,7 @@ var columns = require('../main').create({
     },
     column_separator: ' | ',
     header_separator: '-_-_',
-    flow_mode: 'reset',
+    // flow_mode: 'reset',
     overflow: 3,
     maximum_buffer: 300,
     tab_size: 2,
