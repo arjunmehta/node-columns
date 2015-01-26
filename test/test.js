@@ -3,6 +3,7 @@ var columns = require('../main').create({
 });
 var ColumnLine = require('../lib/ColumnLine');
 
+
 exports['Exported Properly'] = function(test) {
     test.expect(2);
 
