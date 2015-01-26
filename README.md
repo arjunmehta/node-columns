@@ -220,7 +220,7 @@ Returns a new `Column` object and simultaneously adds it to your `columns`.
 - `name` **String**: Set the name of your column. This will by default also set the header of your column to this value. If you do not provide a name, you will not be able to refer to it with the **columns.column()** method.
 - `options` **Object**:
     - `width` **String|Number**: Set the width of this column. This can be as a percentage (**String** with `%`) or a number of terminal characters width (**Number**).
-    - `header` **String**: Specify the header title of the column.
+    - `header` **String**: Specify the header title of the column. Set to `false` to show no header.
     - `raw` **Boolean**: Set if you want the stream to be read in by character instead of by line.
     - `wrap` **Boolean**: Set to enable line wrapping. (Experimental).
     
@@ -252,27 +252,50 @@ var b = columns.column('Column B')
 b.width = '30%'
 ```
 
-### columns.flow_mode = **String**
-Sets flow mode. Choose between `reset` or `push`. Default is `push`.
+### columns[setting]
+Some settings can be set dynamically after your column set has been instantiated:
 
-### columns.overflow = **Number**
-If `flow_mode` is set to `reset`, you can choose how many lines from the buffer will be brought in after reset occurs.
+- `header_separator` **String|false**: Set this to any repeatable string, and it will show up under headers for columns that have headers. Set to `false` if you'd prefer not to have header separators.
+- `column_separator` **String|false**: Set this to any vertically repeatable string and it will show up between columns. Set to `false` if you'd prefer not to have column separators.
 
-### columns.header_separator = **String**
-Sets the `header_separator` of all columns. Set to `false` (default) to hide.
-
-### columns.column_separator = **String**
-Sets the `column_separator` between all columns. Set to `false` to hide. Default is a blank space `' '`.
+```javascript
+columns.header_separator = '_-_-'
+columns.column_separator = ' | '
+```
 
 ### column.write(chunk)
-Write data to your column!! Stream data will be encoded as `UTF8`.
+Write data to your column stream!! Stream data will be encoded as `utf8`.
+
+```javascript
+setInterval(function(){
+    column.write('The Time: ' + new Date() + '\n')
+}, 1000)
+```
 
 ### column.clear()
 Clear the column's buffer and view.
 
+```javascript
+column.clear()
+```
+
 ### column.remove()
 Remove the column and its view from the column set.
 
+```javascript
+column.remove()
+```
+
+### column[setting]
+Some settings can be set dynamically after your column has been instantiated:
+
+- `width` **String|Number**: Set the width of this column. This can be as a percentage (**String** with `%`) or a number of terminal characters width (**Number**).
+- `header` **String|false**: Specify the header title of the column. Set to `false` to show no header.
+
+```javascript
+columns.header_separator = '_-_-'
+columns.column_separator = ' | '
+```
 
 ## License
 
