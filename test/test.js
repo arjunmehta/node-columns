@@ -40,7 +40,6 @@ exports['Column Line Wrap'] = function(test) {
     test.done();
 };
 
-
 exports['tearDown'] = function(done) {
     done();
 };
