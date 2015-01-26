@@ -9,7 +9,6 @@ var Column = require('./lib/Column');
 var idCount = 0;
 
 
-
 function create(opts) {
     return new Columns(opts);
 }
