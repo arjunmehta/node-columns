@@ -33,7 +33,7 @@ var columns = require('columns').create()
 ```
 
 ### Add Columns
-Add columns to your program. Give them a name, and set options for them. Add option flags to your program. Shortcuts will automatically be made based on the first available character of the specified option name.
+Add columns to your program. Give them a name, and set options for them.
 
 ```javascript
 var a = columns.addColumn('Column A')
