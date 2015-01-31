@@ -13,6 +13,7 @@ setInterval(function() {
 
 process.stdin.setRawMode(true);
 process.stdin.pipe(columns.column("Column C"));
+columns.column("Column C").write("Try typing something...");
 
 
 // exit the program gracefully to clean up terminal output properly
