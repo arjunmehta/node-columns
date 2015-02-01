@@ -3,6 +3,9 @@
 // www.arjunmehta.net
 
 
+var heartbeats = require('heartbeats');
+heartbeats.createHeart('view_refresh', Math.round(1000/12));
+
 var MainView = require('./lib/MainView');
 var Column = require('./lib/Column');
 
