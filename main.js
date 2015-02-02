@@ -4,7 +4,7 @@
 
 
 var heartbeats = require('heartbeats');
-heartbeats.createHeart('view_refresh', Math.round(1000/12));
+heartbeats.createHeart(Math.round(1000/24), 'view_refresh');
 
 var MainView = require('./lib/MainView');
 var Column = require('./lib/Column');
