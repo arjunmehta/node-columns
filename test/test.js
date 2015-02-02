@@ -35,7 +35,7 @@ exports['Column Line Wrap'] = function(test) {
     var line = new ColumnLine("BB BBBBBB BBBBBBB BBBBB BBBBBBB BBBBBBBBBBB BBBBBB BBBBBBB BBBBBBBB");    
 
     test.equal(line.trimmed(10, true).length, 8);
-    test.equal(line.trimmed(10, true)[0], '\u001b[0mBB BBBBBB \u001b[0m');
+    test.equal(line.trimmed(10, true)[0], '\u001b[mBB BBBBBB \u001b[0m');
     test.equal(line.trimmed(10, true)[4], '\u001b[mBBBBBBBBBB\u001b[0m');
 
     test.done();

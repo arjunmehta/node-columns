@@ -32,6 +32,7 @@
     },
     "homepage": "https://github.com/arjunmehta/node-columns",
     "dependencies": {
+        "ansi-state": "~1.0.5",
         "heartbeats": "~3.1.0",
         "split": "~0.3.2",
         "strip-bom": "~1.0.0",
