@@ -32,7 +32,7 @@
     },
     "homepage": "https://github.com/arjunmehta/node-columns",
     "dependencies": {
-        "heartbeats": "~3.0.0",
+        "heartbeats": "~3.1.0",
         "split": "~0.3.2",
         "strip-bom": "~1.0.0",
         "wcwidth.js": "~1.0.0"
