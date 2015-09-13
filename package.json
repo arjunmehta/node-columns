@@ -1,6 +1,6 @@
 {
     "name": "columns",
-    "version": "0.7.3",
+    "version": "0.7.4",
     "description": "Stream your text streams into streams of column streams.",
     "main": "main.js",
     "scripts": {
