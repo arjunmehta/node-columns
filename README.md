@@ -41,7 +41,6 @@ var a = columns.addColumn('Column A')
 columns.addColumn('Column B')
 // OR
 var c = columns.addColumn('Column C', {raw : true}) // character feed
-
 ```
 
 ### Write or Pipe Text to Your Columns!
