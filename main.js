@@ -4,7 +4,7 @@
 
 
 var heartbeats = require('heartbeats');
-heartbeats.createHeart(Math.round(1000/24), 'view_refresh');
+heartbeats.createHeart(Math.round(1000 / 24), 'view_refresh');
 
 var MainView = require('./lib/MainView');
 var Column = require('./lib/Column');
@@ -27,13 +27,14 @@ function Columns(opts) {
         left: 0
     };
 
-    opts.flow = opts.flow_mode === 'reset' ?  false : true;
+    opts.flow = opts.flow_mode === 'reset' ? false : true;
     opts.overflow = opts.overflow !== undefined ? opts.overflow : 3;
     opts.maximum_buffer = opts.maximum_buffer || 500;
     opts.tab_size = opts.tab_size || 2;
+    opts.print = opts.print || false;
 
     this.opts = opts;
-    this.view = new MainView(this, opts.mode);
+    this.view = new MainView(this, opts.mode, opts.print);
     this.columns = {};
 }
 
@@ -42,7 +43,7 @@ function Columns(opts) {
 
 Object.defineProperty(Columns.prototype, 'flow_mode', {
     get: function() {
-        return this.opts.flow === false ? 'reset' : 'push' ;
+        return this.opts.flow === false ? 'reset' : 'push';
     },
     set: function(flow) {
         this.opts.flow = flow === 'reset' ? false : true;
