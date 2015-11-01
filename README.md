@@ -130,6 +130,15 @@ var columns = require('columns').create({
 column.column_separator: '|'    
 ```
 
+#### Print All Column Buffers on Exit
+Because this module uses a special print mode during regular display, on Exit, all contents on the screen are wiped. You can optionally print out the contents of each column linearly upon exiting. Just set to the `print` option to `true`.
+
+```javascript
+var columns = require('columns').create({
+    print: true    
+})
+```
+
 #### Add Custom Column and Header separators
 
 Globally, you can set the appearance of your header and column separators to any character string. These will be repeated, for the width/height of your column. Set either to `false` to not render any header.
