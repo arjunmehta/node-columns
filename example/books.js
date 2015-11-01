@@ -7,7 +7,7 @@ var columns = require('../main').create({
     overflow: 3,
     maximum_buffer: 300,
     tab_size: 2,
-    column_separator: '  ',
+    column_separator: '  '
     // flow_mode: 'reset'
 });
 
