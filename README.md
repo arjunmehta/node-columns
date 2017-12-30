@@ -256,8 +256,7 @@ b.width = '30%'
 Remove the column with the given name from the column set.
 
 ```javascript
-var b = columns.column('Column B')
-b.width = '30%'
+columns.removeColumn('Column B')
 ```
 
 ### columns[setting]
